@@ -51,7 +51,7 @@ MokuPDF is a powerful, MCP (Model Context Protocol) compatible server that enabl
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mokupdf.git
+git clone https://github.com/jameslovespancakes/mokupdf.git
 cd mokupdf
 
 # Install the package

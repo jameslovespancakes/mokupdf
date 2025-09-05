@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mokupdf"
+version = "1.0.0"
+description = "MCP-compatible PDF reading server with intelligent file search and extraction"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "MokuPDF Team", email = "mokupdf@example.com"},
+]
+maintainers = [
+    {name = "MokuPDF Team", email = "mokupdf@example.com"},
+]
+keywords = [
+    "pdf", 
+    "mcp", 
+    "model-context-protocol",
+    "ai",
+    "llm", 
+    "claude",
+    "pdf-reader",
+    "text-extraction", 
+    "image-extraction",
+    "smart-search"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: General", 
+    "Topic :: Office/Business :: Office Suites",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "mcp>=1.2.0",
+    "PyMuPDF>=1.23.0", 
+    "Pillow>=10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "twine>=4.0.0",
+    "build>=0.10.0",
+]
+ocr = [
+    "pytesseract>=0.3.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/mokupdf/mokupdf"
+Documentation = "https://github.com/mokupdf/mokupdf#readme"
+Repository = "https://github.com/mokupdf/mokupdf"
+Issues = "https://github.com/mokupdf/mokupdf/issues"
+
+[project.scripts]
+mokupdf = "mokupdf.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mokupdf*"]
+exclude = ["tests*"]

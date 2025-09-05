@@ -1,0 +1,51 @@
+{
+  "mcpServers": {
+    "mokupdf": {
+      "command": "python",
+      "args": ["-m", "mokupdf", "--port", "8000", "--verbose"],
+      "name": "MokuPDF (Python)",
+      "description": "MCP-compatible PDF reading server with text and image extraction",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  }
+}
+
+// Alternative configurations:
+
+// 1. Using the installed command directly:
+{
+  "mcpServers": {
+    "mokupdf": {
+      "command": "mokupdf",
+      "args": ["--port", "8000", "--verbose"],
+      "name": "MokuPDF",
+      "description": "PDF reading server for MCP"
+    }
+  }
+}
+
+// 2. With custom base directory:
+{
+  "mcpServers": {
+    "mokupdf": {
+      "command": "python",
+      "args": ["-m", "mokupdf", "--port", "8000", "--base-dir", "./documents/pdfs"],
+      "name": "MokuPDF",
+      "description": "PDF reading server with custom directory"
+    }
+  }
+}
+
+// 3. Production mode (no verbose):
+{
+  "mcpServers": {
+    "mokupdf": {
+      "command": "mokupdf",
+      "args": ["--port", "8000"],
+      "name": "MokuPDF",
+      "description": "PDF reading server"
+    }
+  }
+}

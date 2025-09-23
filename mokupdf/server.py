@@ -646,65 +646,65 @@ def create_mcp_server(base_dir: str = ".", max_file_size_mb: int = 100) -> FastM
     @mcp.tool()
     def open_pdf(file_path: str) -> Dict[str, Any]:
         """Open a PDF file for processing (supports smart file finding)
-        
+
         Args:
             file_path: Path to PDF file or search terms to find the file
-            
+
         Returns:
             Dict containing success status, file info, and message
         """
         return pdf_processor.open_pdf(file_path)
-    
+
     @mcp.tool()
-    def read_pdf(file_path: Optional[str] = None, start_page: int = 1, 
+    def read_pdf(file_path: Optional[str] = None, start_page: int = 1,
                 end_page: Optional[int] = None, max_pages: int = 50) -> Dict[str, Any]:
         """Read PDF pages with text and image extraction (supports smart file finding)
-        
+
         Args:
             file_path: Path to PDF file or search terms to find the file (optional if already open)
             start_page: Starting page number (1-indexed)
             end_page: Ending page number (optional)
             max_pages: Maximum number of pages to read
-            
+
         Returns:
             Dict containing text content, images as base64, and page information
         """
         return pdf_processor.read_pdf(file_path, start_page, end_page, max_pages)
-    
+
     @mcp.tool()
     def search_text(query: str, case_sensitive: bool = False) -> Dict[str, Any]:
         """Search for text within the current PDF
-        
+
         Args:
             query: Text to search for
             case_sensitive: Whether search should be case sensitive
-            
+
         Returns:
             Dict containing search results with page numbers and context
         """
         return pdf_processor.search_text(query, case_sensitive)
-    
+
     @mcp.tool()
     def get_page_text(page_number: int) -> Dict[str, Any]:
         """Extract text from a specific page
-        
+
         Args:
             page_number: Page number to extract text from (1-indexed)
-            
+
         Returns:
             Dict containing the extracted text
         """
         return pdf_processor.get_page_text(page_number)
-    
+
     @mcp.tool()
     def get_metadata() -> Dict[str, Any]:
         """Get metadata from the current PDF
-        
+
         Returns:
             Dict containing PDF metadata information
         """
         return pdf_processor.get_metadata()
-    
+
     @mcp.tool()
     def close_pdf() -> Dict[str, Any]:
         """Close the current PDF and free memory
